@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todo app</title>
+  <link rel="stylesheet" type="text/css" href="./style/todo.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+  <script defer src="./js/todo.js"></script>
+</head>
+
+<body>
+    <section class="banner">
+      <h1 class="banner__title">Todo</h1>
+      <p class="banner__text">Add new todo</p>
+    </section>
+
+      <form class="add" >
+        <div class="add__title">
+          <input type="text" class="add__input" name="title" autocomplete="off" required maxlength="20" placeholder=" ">
+          <label for="title" class="add__label">
+            <span class="add__span">
+              Title
+            </span>
+          </label>
+        </div>
+      
+        <div class="add__description">
+          <input type="text" class="add__input" name="description" autocomplete="off" maxlength="80" placeholder=" ">
+          <label for="title" class="add__label">
+            <span class="add__span">
+              Description
+            </span>
+          </label>
+        </div>
+
+        <button type="submit" class="add__submit">Add</button>
+      </form>
+      <section class="todo-list"></section>
+</body>
+</html>

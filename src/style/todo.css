@@ -1,0 +1,237 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;1,300&display=swap');
+:root {
+  --primary: #424B54;
+  --secondary: #ffffff;
+  --accent: #86A873;
+}
+
+* {
+  margin:0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background: rgb(229,45,87);
+  background: linear-gradient(to right, rgba(229,45,87,1) 0%, rgba(179,18,23,1) 100%);
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  color: var(--primary);
+} 
+
+.banner {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  max-width: 46rem;
+}
+
+.banner__title {
+  text-align: center;
+  color: var(--secondary);
+  font-family: 'Raleway', sans-serif;
+  font-weight: 300;
+  margin: 1rem 0;
+  font-size: 5rem;
+}
+
+.banner__text {
+  text-align: left;
+  font-size: 0.8rem;
+}
+
+.add {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 3fr 2fr;
+  grid-template-areas: 
+  "add__title ."
+  "add__description add__submit";
+  width: 60%;
+  max-width: 46rem;
+  padding-bottom: 1rem;
+  overflow: hidden;
+}
+.add__description,
+.add__title {
+  width: 100%;
+  position: relative;  
+}
+
+.add__title {
+  grid-area: add__title;
+}
+.add__description {
+  grid-area: add__description;
+}
+
+.add__input {
+  color: var(--secondary);
+  background-color: transparent;
+  border: none;
+  padding-top: 1.8rem;
+  height: 100%;
+  width:100%;
+  outline: none;
+  padding-bottom: 0.5rem;
+}
+
+.add__label {
+  position: absolute;
+  bottom: 0px;
+  left:0%;
+  height: 100%;
+  width:100%;
+  pointer-events: none;
+  border-bottom: 1px solid var(--secondary);
+}
+
+.add__span {
+  font-size: 0.9rem;
+  color: var(--secondary);
+  position: absolute;
+  bottom: 0.3rem;
+  left: 0px;
+  transition: all 0.3s ease-out;
+}
+
+.add__input:focus + .add__label .add__span, .add__input:not(:placeholder-shown) + .add__label .add__span {
+  transform: translateY(-150%);
+  font-size: 0.85rem;
+  color: var(--primary);
+}
+
+.add__submit {
+  grid-area: add__submit;
+  width: 90%;
+  height: 3rem;
+  border: none;
+  text-decoration: none;
+  background-color: var(--primary);
+  color: var(--secondary);
+  justify-self: self-end;
+  cursor: pointer;
+  border-radius: 25px;
+  outline: none;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 300;
+  font-size: 1rem;
+  padding: 0.95rem;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  transition: all .25s ease-out;
+}
+
+.add__submit:active {
+  box-shadow:0px 4px 8px rgba(darken(0, 0, 0, 0.25));
+  transform: scale(.97);
+  font-size: scale(.97);
+}
+
+.todo__remove:hover,
+.add__submit:hover {
+  background-color: #57626C;
+}
+
+.todo-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+  max-width: 48rem;
+  margin-bottom: 5rem;
+}
+
+.todo {
+  order: 1;
+  align-self: center;
+  background-color: var(--secondary);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  display: grid;
+  grid-template-columns: 1fr 2.7fr 0.3fr 0.5fr;
+  grid-gap: .5rem;
+  align-items: center;
+  width: 100%;
+  height: 4rem;
+  border-radius: 25px;
+  margin-top: 1rem;
+  padding: 0 1rem;
+  cursor: pointer;
+}
+
+.todo-list__line {
+  order:2;
+  border: 1px solid var(--primary);
+  width: 95%;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.todo--checked {
+  order: 3;
+}
+
+.todo--checked,
+.todo__description--checked,
+.todo__title--checked {
+  background-color: var(--primary);
+  color: var(--secondary);
+}
+
+.todo__helper-text,
+.material-icons,
+.todo__title,
+.todo__description {
+  pointer-events: none;
+}
+
+.todo__title {
+  font-size: 0.9rem;
+  font-weight: 300;
+  text-transform: capitalize;
+  word-break: break-all;
+}
+
+.todo__description {
+  font-size: 0.7rem;
+  font-weight: 300;
+  word-break: break-all;
+}
+
+.todo__helper-text {
+  width: 5rem;
+  font-size: 0.8rem;
+  font-weight: 400;
+  
+}
+
+.todo__remove {
+  height: 2rem;
+  border: none;
+  text-decoration: none;
+  color: var(--primary);
+  background-color: var(--secondary);
+  cursor: pointer;
+  border-radius: 10px;
+  outline: none;
+  padding:0 1rem;
+}
+
+.material-icons{
+  color: var(--accent);
+  font-size: 2rem;
+  text-align: center;
+ }
+
+@media (min-width: 800px) {
+  .todo__title{
+    font-size: 1rem;
+  }
+  .todo__description{
+    font-size: 0.8rem;
+  }
+}
