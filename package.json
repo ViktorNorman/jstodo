@@ -6,7 +6,7 @@
   "scripts": {
     "lint": "eslint . --fix",
     "dev": "webpack-dev-server",
-    "start": "npm run dev"
+    "start": "webpack-dev-server"
   },
   "repository": {
     "type": "git",
