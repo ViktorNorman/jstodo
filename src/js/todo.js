@@ -10,9 +10,7 @@ const buildElement = (element, className, parent, text) => {
   return el;
 };
 
-const buildTodo = ({
-  title, description, checked, id,
-}) => {
+const buildTodo = ({ title, description, checked, id }) => {
   const fragment = new DocumentFragment();
   const todo = document.createElement('section');
   const todoTitle = document.createElement('h5');
@@ -34,7 +32,12 @@ const buildTodo = ({
   } else {
     const uncheckedIcon = document.createElement('span');
     const helperText = document.createElement('p');
-    buildElement(uncheckedIcon, 'material-icons', todo, 'check_box_outline_blank');
+    buildElement(
+      uncheckedIcon,
+      'material-icons',
+      todo,
+      'check_box_outline_blank'
+    );
     buildElement(helperText, 'todo__helper-text', todo, 'Uncompleted');
   }
   return fragment;
@@ -54,7 +57,7 @@ const render = () => {
   list.innerHTML = '';
   if (todos.length > 0) {
     todos.sort((a, b) => a.checked - b.checked);
-    todos.forEach((todo) => {
+    todos.forEach(todo => {
       list.append(buildTodo(todo));
     });
     const line = document.createElement('hr');
@@ -62,7 +65,7 @@ const render = () => {
   }
 };
 
-const addTodo = (e) => {
+const addTodo = e => {
   e.preventDefault();
   const title = e.target[0].value.trim();
   const description = e.target[1].value.trim();
@@ -81,25 +84,29 @@ const addTodo = (e) => {
 
 const removeTodo = (e, todos) => {
   const clickedId = Number(e.target.parentNode.id);
-  return todos.filter((todo) => todo.id !== clickedId);
+  return todos.filter(todo => todo.id !== clickedId);
 };
 
 const toggleChecked = (e, todos) => {
   const clickedId = Number(e.target.id);
   const notValidId = 0;
   if (clickedId === notValidId) return null;
-  return todos.map((todo) => {
+  return todos.map(todo => {
     const { checked, id } = todo;
     if (id === clickedId) {
       return { ...todo, checked: !checked };
-    } return todo;
+    }
+    return todo;
   });
 };
 
-const clickedTodo = (e) => {
+const clickedTodo = e => {
   const clickedItem = e.target.classList.value;
   let todos = readStorage();
-  todos = clickedItem === 'todo__remove' ? removeTodo(e, todos) : toggleChecked(e, todos);
+  todos =
+    clickedItem === 'todo__remove'
+      ? removeTodo(e, todos)
+      : toggleChecked(e, todos);
   if (todos !== null) {
     localStorage.setItem('todos', JSON.stringify(todos));
     render();
