@@ -2,7 +2,7 @@
   "name": "jstodo",
   "version": "1.0.0",
   "description": "Todo",
-  "main": "index.js",
+  "main": "todo.js",
   "scripts": {
     "lint": "eslint . --fix",
     "dev": "webpack-dev-server",
