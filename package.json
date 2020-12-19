@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "lint": "eslint . --fix",
-    "dev": "webpack-dev-server"
+    "dev": "webpack-dev-server",
+    "start": "npm run dev"
   },
   "repository": {
     "type": "git",
