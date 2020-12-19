@@ -4,9 +4,9 @@
   "description": "Todo",
   "main": "todo.js",
   "scripts": {
-    "lint": "eslint . --fix",
-    "dev": "webpack-dev-server",
-    "start": "webpack-dev-server"
+    "dev": "webpack serve",
+    "start": "node server.js",
+    "build": "webpack --mode production"
   },
   "repository": {
     "type": "git",
@@ -19,11 +19,15 @@
   },
   "homepage": "https://github.com/saltsthlm/salt-jsfs-todo#readme",
   "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
+    "babel-loader": "^8.2.2",
     "eslint": "^6.7.1",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-plugin-import": "^2.18.2"
   },
   "dependencies": {
+    "express": "^4.17.1",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.10",
     "webpack-dev-server": "^3.11.0"

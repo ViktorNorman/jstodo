@@ -1,8 +1,35 @@
 module.exports = {
-  entry: {
-    todo: './src/js/todo.js',
+  module: {
+    rules: [
+      {
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+        },
+      },
+      {
+        test: /\.html$/,
+        use: [
+          {
+            loader: 'html-loader',
+          },
+        ],
+      },
+    ],
   },
-  devServer: {
-    contentBase: './src',
-  },
+  plugins: [
+    new HtmlWebPackPlugin({
+      template: './src/index.html',
+      filename: './index.html',
+    }),
+  ],
 };
+// module.exports = {
+//   entry: {
+//     todo: './src/js/todo.js',
+//   },
+//   devServer: {
+//     contentBase: './src',
+//   },
+// };
